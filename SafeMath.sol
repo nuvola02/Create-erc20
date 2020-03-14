@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.6.0;
 
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
@@ -153,3 +153,4 @@ library SafeMath {
         require(b != 0, errorMessage);
         return a % b;
     }
+}
