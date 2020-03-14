@@ -1,8 +1,9 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.6.0;
 
 import "./Context.sol";
 import "./ERC20.sol";
 import "./ERC20Detailed.sol";
+import "./ERC20Burnable.sol";
 
 /**
  * @title SimpleToken
@@ -10,12 +11,13 @@ import "./ERC20Detailed.sol";
  * Note they can later distribute these tokens as they wish using `transfer` and other
  * `ERC20` functions.
  */
-contract SimpleToken is Context, ERC20, ERC20Detailed {
+contract SimpleToken is Context, ERC20, ERC20Detailed, ERC20Burnable {
+    
 
     /**
      * @dev Constructor that gives _msgSender() all of existing tokens.
      */
     constructor () public ERC20Detailed("TestCoinSecond", "TCS", 18) {
-        _mint(_msgSender(), 10000 * (10 ** uint256(decimals())));
+        _mint(_msgSender(), 10 * (10 ** uint256(decimals())));
     }
 }
