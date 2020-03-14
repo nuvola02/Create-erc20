@@ -1,12 +1,11 @@
-pragma solidity ^0.5.0;
+pragma solidity ^0.6.0;
 
-import "@openzeppelin/upgrades/contracts/Initializable.sol";
 import "./IERC20.sol";
 
 /**
  * @dev Optional functions from the ERC20 standard.
  */
-contract ERC20Detailed is Initializable, IERC20 {
+abstract contract ERC20Detailed is IERC20 {
     string private _name;
     string private _symbol;
     uint8 private _decimals;
@@ -16,7 +15,7 @@ contract ERC20Detailed is Initializable, IERC20 {
      * these values are immutable: they can only be set once during
      * construction.
      */
-    function initialize(string memory name, string memory symbol, uint8 decimals) public initializer {
+    constructor (string memory name, string memory symbol, uint8 decimals) public {
         _name = name;
         _symbol = symbol;
         _decimals = decimals;
@@ -52,6 +51,4 @@ contract ERC20Detailed is Initializable, IERC20 {
     function decimals() public view returns (uint8) {
         return _decimals;
     }
-
-    uint256[50] private ______gap;
 }
